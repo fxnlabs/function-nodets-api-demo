@@ -1,0 +1,18 @@
+{
+  "name": "function-nodets-api-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "start": "tsc && node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@buf/functionnetworklabs_api-gateway.connectrpc_es": "^1.4.0-20240901201125-fe958404e3d1.3",
+    "@connectrpc/connect": "^1.4.0",
+    "@connectrpc/connect-node": "^1.4.0"
+  }
+}
