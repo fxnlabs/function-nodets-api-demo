@@ -12,10 +12,12 @@ const transport = createConnectTransport({
 const apiClient = createPromiseClient(APIGatewayService, transport);
 
 async function main() {
-    apiClient.embed({
-        model: "123",
-        input: "123",
+    const response = await apiClient.embed({
+        model: "bge-small-en-v1.5",
+        input: "Embed me so I can use it for RAG Pipelines",
     })
+    console.log(response.object)
+    console.log(response.data)
 }
 
 main().then(res => console.log(res))
