@@ -2,7 +2,7 @@ import { createPromiseClient } from "@connectrpc/connect";
 import { createConnectTransport } from "@connectrpc/connect-node";
 import {
     APIGatewayService
-} from "@buf/functionnetworklabs_api-gateway.connectrpc_es/apigateway/v1/apigateway_connect.js";
+} from "@buf/fxnlabs_api-gateway.connectrpc_es/apigateway/v1/apigateway_connect.js";
 
 const transport = createConnectTransport({
     httpVersion: "1.1",

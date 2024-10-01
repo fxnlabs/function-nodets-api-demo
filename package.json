@@ -11,8 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@buf/functionnetworklabs_api-gateway.connectrpc_es": "^1.4.0-20240901212907-6521abc9f73f.3",
-    "@connectrpc/connect": "^1.4.0",
-    "@connectrpc/connect-node": "^1.4.0"
+    "@buf/fxnlabs_api-gateway.connectrpc_es": "^1.5.0-20240920030237-59316fe8b033.1",
+    "@connectrpc/connect": "^1.5.0",
+    "@connectrpc/connect-node": "^1.5.0"
   }
 }
