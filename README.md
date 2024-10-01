@@ -3,7 +3,6 @@ This demo is to illustrate how to install and leverage Function's API Clients us
 
 ## Prerequisites
 Setting up Buf Registry to pull Function's Typesafe API Client:
-1. `npm config set //buf.build/gen/npm/v1/:_authToken INSERT_TOKEN_HERE`
 2. `npm config set @buf:registry https://buf.build/gen/npm/v1/`
 
 _Step 1 can be skipped once we release our buf builds._
