@@ -3,7 +3,7 @@ This demo is to illustrate how to install and leverage Function's API Clients us
 
 ## Prerequisites
 Setting up Buf Registry to pull Function's Typesafe API Client:
-2. `npm config set @buf:registry https://buf.build/gen/npm/v1/`
+1. `npm config set @buf:registry https://buf.build/gen/npm/v1/`
 
 ## Run Demo
 1. `npm install`
