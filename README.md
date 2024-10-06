@@ -11,31 +11,42 @@ Setting up Buf Registry to pull Function's Typesafe API Client:
 
 ## Source Code
 ```typescript
-import { createPromiseClient } from "@connectrpc/connect";
+import {createPromiseClient, Interceptor} from "@connectrpc/connect";
 import { createConnectTransport } from "@connectrpc/connect-node";
-
 import {
     APIGatewayService
 } from "@buf/fxnlabs_api-gateway.connectrpc_es/apigateway/v1/apigateway_connect.js";
 
-const transport = createConnectTransport({
-    httpVersion: "1.1",
-    baseUrl: "http://api.function.network"
-});
+function createAPIClient() {
+    // Adds API Key to each request
+    const apiKeyInterceptor: Interceptor = (next) => async (req) => {
+        req.header.set("x-api-key", process.env.FXN_API_KEY!)
+        return await next(req);
+    };
 
-const apiClient = createPromiseClient(APIGatewayService, transport);
+    // Creates the transport
+    const transport = createConnectTransport({
+        httpVersion: "1.1",
+        baseUrl: "api.function.network",
+        interceptors: [apiKeyInterceptor]
+    });
+
+    // Creates the client
+    return createPromiseClient(APIGatewayService, transport);
+}
 
 async function main() {
 
-    const response = await apiClient.chatComplete({
+    // Init the apiClient (should only be called once)
+    const apiClient = createAPIClient()
+
+    // Use API Client
+    const response = await apiClient.embed({
         model: "bge-small-en-v1.5",
-        message: [
-            {
-                role: "user",
-                content: "Tell me a long story",
-            }
-        ]
+        input: "Embed me so I can use it for RAG Pipelines",
     })
+    console.log(response.object)
+    console.log(response.data)
 }
 
 main().then(res => console.log(res))
