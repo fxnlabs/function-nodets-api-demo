@@ -1,12 +1,21 @@
-import { createPromiseClient } from "@connectrpc/connect";
+import {createPromiseClient, Interceptor} from "@connectrpc/connect";
 import { createConnectTransport } from "@connectrpc/connect-node";
 import {
     APIGatewayService
 } from "@buf/fxnlabs_api-gateway.connectrpc_es/apigateway/v1/apigateway_connect.js";
 
+
+// Adds API Key to each request
+const apiKeyInterceptor: Interceptor = (next) => async (req) => {
+    req.header.set("x-api-key", process.env.FXN_API_KEY)
+    return await next(req);
+};
+
+// Creates the transport
 const transport = createConnectTransport({
     httpVersion: "1.1",
-    baseUrl: "http://localhost:8080",
+    baseUrl: "api.function.network",
+    interceptors: [apiKeyInterceptor]
 });
 
 const apiClient = createPromiseClient(APIGatewayService, transport);
