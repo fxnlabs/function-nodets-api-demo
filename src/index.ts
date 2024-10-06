@@ -18,8 +18,11 @@ const transport = createConnectTransport({
     interceptors: [apiKeyInterceptor]
 });
 
+// Creates the client
 const apiClient = createPromiseClient(APIGatewayService, transport);
 
+
+// Demo end to end
 async function main() {
     const response = await apiClient.embed({
         model: "bge-small-en-v1.5",
