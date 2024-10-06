@@ -14,5 +14,8 @@
     "@buf/fxnlabs_api-gateway.connectrpc_es": "^1.5.0-20240920030237-59316fe8b033.1",
     "@connectrpc/connect": "^1.5.0",
     "@connectrpc/connect-node": "^1.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.4"
   }
 }

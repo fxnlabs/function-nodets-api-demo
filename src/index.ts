@@ -7,7 +7,7 @@ import {
 
 // Adds API Key to each request
 const apiKeyInterceptor: Interceptor = (next) => async (req) => {
-    req.header.set("x-api-key", process.env.FXN_API_KEY)
+    req.header.set("x-api-key", process.env.FXN_API_KEY!)
     return await next(req);
 };
 

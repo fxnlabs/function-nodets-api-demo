@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2018",
+    "types": ["node"],
     "module": "nodenext",
     "outDir": "dist",
     "strict": true,
